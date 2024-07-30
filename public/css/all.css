@@ -1,0 +1,8 @@
+body {
+    background-image: url("/..//images/fond.png") !important;
+    background-size: cover !important; /* Pour couvrir toute la zone */
+    background-position: center !important; /* Pour centrer l'image */
+    background-repeat: no-repeat !important; /* Pour ne pas répéter l'image */
+    background-attachment: fixed !important;
+
+}
