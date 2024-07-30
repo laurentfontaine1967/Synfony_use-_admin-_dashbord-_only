@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product List{% endblock %}
+
+{% block body %}
+<div classs="container">
+    
+    <div class="container">
+        <h1 class="mt-5">Product List</h1>
+        <div class="table-responsive mt-4">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Ref</th>
+                        <th>Short Description</th>
+                        <th>Long Description</th>
+                        <th>Photo</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.ref }}</td>
+                            <td>{{ product.shortDescription }}</td>
+                            <td>{{ product.longDescription }}</td>
+                            <td>
+                                {% if product.photo %}
+                                    <img src="{{ asset(product.photo) }}" alt="Product Photo" style="max-width: 100px; max-height: 100px;">
+                                {% else %}
+                                    No Image
+                                {% endif %}
+                            </td>
+                            <td>{{ product.price }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
