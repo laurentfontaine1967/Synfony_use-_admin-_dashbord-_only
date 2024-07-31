@@ -68,8 +68,8 @@ class ProductCrudController extends AbstractCrudController
         yield TextField::new('short_description');
         yield TextField::new('long_description');
         yield ImageField::new('photo')
-            ->setUploadDir('public/uploads/photos')  // Set the directory where files will be uploaded
-            ->setBasePath('/uploads/photos')  // Set the base path for the files
+            ->setUploadDir('public/uploads/images')  // Set the directory where files will be uploaded
+            ->setBasePath('/uploads/images')  // Set the base path for the files
             ->setUploadedFileNamePattern('[randomhash].[extension]')
             ->setRequired(false);
         yield NumberField::new('price');
