@@ -3,8 +3,8 @@
 {% block title %}Product List{% endblock %}
 
 {% block body %}
-<div class="container">
-    <div class="container">
+<div class="container" >
+    <div class="container" id="allproducts">
         <h1 class="mt-5">Product List</h1>
         <div class="table-responsive mt-4">
             <table class="table table-striped">
@@ -15,14 +15,15 @@
                         <th>Long Description</th>
                         <th>Photo</th>
                         <th>Price</th>
+                        <th>More</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for product in products %}
                         <tr>
-                            <td>{{ product.getRef() }}</td>
-                            <td>{{ product.getShortDescription() }}</td>
-                            <td>{{ product.getLongDescription() }}</td>
+                            <td><p class="mt-4">{{ product.getRef() }}</p></td>
+                            <td><p class="mt-4">{{ product.getShortDescription() }}</p></td>
+                            <td><p class="mt-4">{{ product.getLongDescription() }}</p></td>
                             <td>
                                 {% if product.getPhoto() %}
                                     <img src="{{ asset('uploads/images/' ~ product.getPhoto()) }}" alt="Product Photo" style="max-width: 100px; max-height: 100px;">
@@ -30,7 +31,10 @@
                                     No Image
                                 {% endif %}
                             </td>
-                            <td>{{ product.getPrice() }}</td>
+                            <td><p class="mt-4">{{ product.getPrice() }}</p></td>
+                           <td>
+                            <a href="{{ path('product_show', {'id': product.getId()})}}" class="btn btn-info mt-3" style="display: inline-block;">More</a>
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>

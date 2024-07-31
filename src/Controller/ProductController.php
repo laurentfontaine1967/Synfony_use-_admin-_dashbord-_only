@@ -20,4 +20,20 @@ class ProductController extends AbstractController
         ]);
        
     }
+
+
+    #[Route('/products/{id}', name: 'product_show')]
+    public function show( $id, EntityManagerInterface $em): Response
+    {
+    
+        $product = $em->getRepository(Product::class)->findOneBy(['id'=>$id]);
+
+
+        return $this->render('product/show.html.twig', [
+            'product' => $product,
+        ]);
+    }
+
+
 }
+

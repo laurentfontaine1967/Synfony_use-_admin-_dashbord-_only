@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product Details{% endblock %}
+
+{% block body %}
+<div class="container mt-5" id="show">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2>Product Details</h2>
+                </div>
+                <div class="card-body">
+
+                   
+                    <div class="row">
+                        <div class="col-md-4 text-center mb-4 mb-md-0">
+                            {% if product.photo %}
+                                <img src="{{ asset('uploads/images/' ~ product.getPhoto()) }}" alt="{{ product.getRef() }}" class="img-fluid" style="max-width: 100%; height: auto;">
+                            {% else %}
+                                <p>No Image Available</p>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8">
+                            <h3>{{ product.Ref }}</h3>
+                            <p><strong>Short Description:</strong> {{ product.ShortDescription }}</p>
+                            <p><strong>Long Description:</strong> {{ product.LongDescription }}</p>
+                            <p><strong>Price:</strong> ${{ product.Price }}</p>
+                        </div>
+                    </div>
+
+                   
+
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{{ path('app_product') }}" class="btn btn-primary">Back to Products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
